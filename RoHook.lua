@@ -19,23 +19,28 @@ local function InitMsg(WebhookType, Content, Embed)
 	if Webhook then
 		local Data = {
 			["content"] = Content,
-			["embeds"] = {Embed}
 		}
+		if Embed then
+			Data["embeds"] = {Embed}
+		end
 		Data = HttpService:JSONEncode(Data)
 		HttpService:PostAsync(Webhook, Data)
 	end
 end
 
 function RoHook:Post(WebhookType, Content, Title, Url, Description, Image, Color)
-	local Embed = {
-		title = Title or "Title",
-		url = Url,
-		description = Description or "Description",
-		image = {
-			url = Image
-		},
-		color = Color or 0xFF0000,
-	}
+	local Embed
+	if Title or Url or Description or Image or Color then
+		Embed = {
+			title = Title,
+			url = Url,
+			description = Description,
+			image = {
+				url = Image
+			},
+			color = Color or 0xFF0000,
+		}
+	end
 	InitMsg(WebhookType, Content, Embed)
 end
 
