@@ -12,7 +12,7 @@ local RoHook = require(path.to.RoHook)
 RoHook:Post(WebhookType, Content, Title, Url, Description, Image, Color)
 ```
 
-- `WebhookType` (string): The type of webhook to send the message to. Supported types are `"Notifiers"`, `"Alerts"`, and `"Logs"`.
+- `WebhookType` (string): The type of webhook to send the message to. Supported types are `"Notifiers"`, `"Alerts"`, and `"Logs"`. Custom types of your own choosing can be added check `Capabilities` section
 - `Content` (string): The content of the message to send.
 - `Title` (string) [optional]: The title of the embed.
 - `Url` (string) [optional]: The URL of the embed.
