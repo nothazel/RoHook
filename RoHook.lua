@@ -28,9 +28,9 @@ local function InitMsg(WebhookType, Content, Embed)
 	end
 end
 
-function RoHook:Post(WebhookType, Content, Title, Url, Description, Image, Color)
+function RoHook:Post(WebhookType, Content, Title, Url, Description, Image, Field, Color)
 	local Embed
-	if Title or Url or Description or Image or Color then
+	if Title or Url or Description or Image or Color or Field then
 		Embed = {
 			title = Title,
 			url = Url,
@@ -38,6 +38,7 @@ function RoHook:Post(WebhookType, Content, Title, Url, Description, Image, Color
 			image = {
 				url = Image
 			},
+			fields = Field,
 			color = Color or 0xFF0000,
 		}
 	end
